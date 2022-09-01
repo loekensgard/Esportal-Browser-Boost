@@ -1,6 +1,6 @@
 {
     "name": "Esportal Browser Boost",
-    "version": "0.0.0.2",
+    "version": "0.0.0.3",
     "manifest_version": 3,
     "description": "Remove the twitch section from esportal.com",
     "icons": {

@@ -1,12 +1,14 @@
 window.setTimeout(() => {
-    var elementToRemove = document.getElementById("right-side-info-content").querySelector(".live-streams");
-    
+    //try to remove the parent element
+    var elementToRemove = document.getElementById("right-side-info-content").querySelector(".live-streamz");
     if(elementToRemove !== null){
         elementToRemove.remove();
     }
     
-}, 5000);
+    //if the parent element is null, find all iframes and hide them.
+    var frames = document.getElementsByTagName('iframe');
+    for (let i = 0; i < frames.length; i++) {
+        frames[i].style.display = "none"
+    }
 
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//     chrome.tabs.executeScript(null, {file: "remove.js"});
-//  });
+}, 5000)

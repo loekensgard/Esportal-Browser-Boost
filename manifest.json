@@ -1,6 +1,6 @@
 {
     "name": "Esportal Browser Boost",
-    "version": "0.0.0.4",
+    "version": "0.0.0.5",
     "manifest_version": 3,
     "description": "Remove the twitch section from esportal.com",
     "icons": {
@@ -15,10 +15,13 @@
             "js": ["/remove.js"]
         }
     ],
+    "host_permissions":[
+        "https://esportal.com/*"
+    ],
     "action":{
         "default_title": "Remove stream"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["scripting"],
     "background": {
         "service_worker": "background.js"
       }

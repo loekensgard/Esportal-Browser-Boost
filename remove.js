@@ -26,11 +26,11 @@ window.setTimeout(() => {
     }
     
     //find all iframes
-    var iframes = document.querySelectorAll('iframe');
-    for(var pop of iframes){
-        matches.push(pop);
-        pop.remove();
-    }
+    // var iframes = document.querySelectorAll('iframe');
+    // for(var pop of iframes){
+    //     matches.push(pop);
+    //     pop.remove();
+    // }
     
     console.log(matches);
 }, 5000)

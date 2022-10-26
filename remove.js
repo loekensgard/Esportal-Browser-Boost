@@ -24,6 +24,12 @@ window.setTimeout(() => {
         matches.push(pop);
         pop.remove();
     }
+
+    var iframes = document.querySelectorAll('iframe[src*="https://player.twitch.tv"]');
+    for(var pop of iframes){
+        matches.push(pop);
+        pop.remove();
+    }
     
     //find all iframes
     // var iframes = document.querySelectorAll('iframe');

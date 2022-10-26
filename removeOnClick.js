@@ -25,10 +25,10 @@ for(var pop of streams){
 }
 
 //find all iframes
-var iframes = document.querySelectorAll('iframe');
-for(var pop of iframes){
-    matches.push(pop);
-    pop.remove();
-}
+// var iframes = document.querySelectorAll('iframe');
+// for(var pop of iframes){
+//     matches.push(pop);
+//     pop.remove();
+// }
 
 console.log(matches);

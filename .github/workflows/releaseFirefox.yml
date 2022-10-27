@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - v1.*
-      - v0.*
+      - v*.*.*.*
 
 jobs:
   Firefox:

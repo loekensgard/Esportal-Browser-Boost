@@ -17,4 +17,4 @@ jobs:
       with:
         type: 'zip'
         filename: release.zip
-        exclusions: '.gitignore *.git* .github/* *.md manifest-ff.json'
+        exclusions: '*.git* .github/* *.md manifest-ff.json'

@@ -14,21 +14,16 @@ jobs:
     - uses: actions/checkout@v2
     - name: Rename Manifest
       run: mv manifest-ff.json manifest.json
-    - name: Build for Firefox
-      id: web-ext-build
-      uses: kewisch/action-web-ext@v1
+    - name: Pack extension
+      uses: TheDoctor0/zip-release@0.6.2
       with:
-        cmd: build
-        filename: release.xpi
-        ignoreFiles: '[ ".git/*",".github/*","*.md" ]'
-        verbose: true
-    - name: Sign and Publish
-      id: web-ext-sign
-      uses: kewisch/action-web-ext@v1
+        type: 'zip'
+        filename: release.zip
+        exclusions: '*.git* .github/* *.md manifest-ff.json'
+    - name: Publish to Firefox
+      uses: wdzeng/firefox-addon@v1
       with:
-        cmd: sign
-        source: ${{ steps.web-ext-build.outputs.target }}
-        channel: listed
-        apiKey: ${{ secrets.FIREFOX_CLIENT_ID }}
-        apiSecret: ${{ secrets.FIREFOX_CLIENT_SECRET }}
-        timeout: 900000
+        addon-guid: ${{ secrets.FIREFOX_EXT_UUID }}
+        xpi-path: release.zip
+        jwt-issuer: ${{ secrets.FIREFOX_CLIENT_ID }}
+        jwt-secret: ${{ secrets.FIREFOX_CLIENT_SECRET }}

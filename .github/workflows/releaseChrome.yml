@@ -18,3 +18,12 @@ jobs:
         type: 'zip'
         filename: release.zip
         exclusions: '*.git* .github/* *.md manifest-ff.json'
+    - name: Publish to Chrome Webstore
+      uses: mnao305/chrome-extension-upload@3.0.0
+      with:
+        file-path: release.zip
+        extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
+        client-id: ${{ secrets.CHROME_CLIENT_ID }}
+        client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+        refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        publish: false

@@ -3,9 +3,9 @@ name: ReleaseChrome
 on:
   workflow_dispatch:
   push:
-    branches: [ feat/release ]
-#    paths:
-#      - 'manifest.json'
+    tags:
+      - v1.*
+      - v0.*
 
 jobs:
   Chrome:
@@ -26,4 +26,3 @@ jobs:
         client-id: ${{ secrets.CHROME_CLIENT_ID }}
         client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
         refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
-        publish: false

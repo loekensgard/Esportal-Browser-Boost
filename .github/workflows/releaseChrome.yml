@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - v1.*
-      - v0.*
+      - v*.*.*.*
 
 jobs:
   Chrome:
@@ -17,7 +16,7 @@ jobs:
       with:
         type: 'zip'
         filename: release.zip
-        exclusions: '*.git* .github/* *.md manifest-ff.json'
+        exclusions: '*.git* .github/* *.md manifest-ff.json src/background.js'
     - name: Publish to Chrome Webstore
       uses: mnao305/chrome-extension-upload@3.0.0
       with:

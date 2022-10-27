@@ -12,7 +12,7 @@
     "content_scripts": [
         {
             "matches": ["https://esportal.com/*"],
-            "js": ["/remove.js"]
+            "js": ["/content-script.js"]
         }
     ],
     "host_permissions":[

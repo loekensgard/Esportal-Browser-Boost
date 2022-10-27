@@ -18,5 +18,4 @@ window.setTimeout(() => {
             div.style.display = 'none';
         }
     }
-
 }, 5000)

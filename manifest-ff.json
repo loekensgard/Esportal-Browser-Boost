@@ -14,10 +14,5 @@
             "matches": ["https://esportal.com/*"],
             "js": ["src/content-script.js"]
         }
-    ],
-    "browser_specific_settings": {
-        "gecko": {
-          "id": "esportal-browser-boost"
-        }
-    }
+    ]
 }

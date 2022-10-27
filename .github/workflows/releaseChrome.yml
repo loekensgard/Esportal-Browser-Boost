@@ -1,0 +1,20 @@
+name: ReleaseChrome
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ feat/release ]
+#    paths:
+#      - 'manifest.json'
+
+jobs:
+  Chrome:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pack extension
+      uses: TheDoctor0/zip-release@0.6.2
+      with:
+        type: 'zip'
+        filename: release.zip
+        exclusions: '.gitignore .github/* *.md manifest-ff.json'

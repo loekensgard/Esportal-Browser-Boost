@@ -14,5 +14,10 @@
             "matches": ["https://esportal.com/*"],
             "js": ["src/content-script.js"]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "a06d6148-ba52-4eed-bdf1-340ca83d7bb7"
+        }
+    }
 }

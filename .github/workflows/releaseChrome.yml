@@ -16,7 +16,7 @@ jobs:
       with:
         type: 'zip'
         filename: release.zip
-        exclusions: '*.git* .github/* *.md manifest-ff.json src/background.js'
+        exclusions: '*.git* .github/* *.md manifest-ff.json'
     - name: Publish to Chrome Webstore
       uses: mnao305/chrome-extension-upload@3.0.0
       with:

@@ -3,8 +3,9 @@ name: ReleaseFirefox
 on:
   workflow_dispatch:
   push:
-    branches:    
-      - 'feat/release'
+    tags:
+      - v1.*
+      - v0.*
 
 jobs:
   Firefox:
@@ -21,13 +22,13 @@ jobs:
         filename: release.xpi
         ignoreFiles: '[ ".git/*",".github/*","*.md" ]'
         verbose: true
-#    - name: Sign and Publish
-#      id: web-ext-sign
-#      uses: kewisch/action-web-ext@v1
-#      with:
-#        cmd: sign
-#        source: ${{ steps.web-ext-build.outputs.target }}
-#        channel: listed
-#        apiKey: ${{ secrets.FIREFOX_CLIENT_ID }}
-#        apiSecret: ${{ secrets.FIREFOX_CLIENT_SECRET }}
-#       timeout: 900000
+    - name: Sign and Publish
+      id: web-ext-sign
+      uses: kewisch/action-web-ext@v1
+      with:
+        cmd: sign
+        source: ${{ steps.web-ext-build.outputs.target }}
+        channel: listed
+        apiKey: ${{ secrets.FIREFOX_CLIENT_ID }}
+        apiSecret: ${{ secrets.FIREFOX_CLIENT_SECRET }}
+        timeout: 900000

@@ -18,4 +18,10 @@ window.setTimeout(() => {
             div.style.display = 'none';
         }
     }
+
+    //find livestream section
+    var liveStreamSection = document.querySelectorAll("[class*='live-ste']");
+    for (var section of liveStreamSection){
+        section.style.display = 'none';
+    }
 }, 5000)

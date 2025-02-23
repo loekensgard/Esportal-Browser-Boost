@@ -1,4 +1,5 @@
-window.setTimeout(() => {
+// Function to remove Twitch-related elements
+function removeTwitchElements() {
     //find all livestream sections
     var livestreams = document.querySelectorAll("a[href*='/twitch']");
     for(var stream of livestreams){
@@ -24,4 +25,22 @@ window.setTimeout(() => {
     for (var section of liveStreamSection){
         section.style.display = 'none';
     }
-}, 5000)
+}
+
+// Create a MutationObserver instance
+const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+        if (mutation.addedNodes.length) {
+            removeTwitchElements();
+        }
+    }
+});
+
+// Start observing the document with the configured parameters
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+// Run once on initial page load
+removeTwitchElements();
